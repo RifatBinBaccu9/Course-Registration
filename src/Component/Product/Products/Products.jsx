@@ -3,7 +3,7 @@ import { FiDollarSign } from "react-icons/fi";
 import { IoBookOutline } from "react-icons/io5";
 
 
-const Products = ({products}) => {
+const Products = ({products, productHendel}) => {
     const {name,description,photo,price,credit}=products;
     
     return (
@@ -21,13 +21,14 @@ const Products = ({products}) => {
                   <span className='mt-[5px] text-md'><IoBookOutline /></span><span>Credit: {credit}hr</span>
                   </div>
                 </div>
-                <button className='bg-green-500 text-white w-full p-2 my-2 rounded-xl items-end justify-end'>Select</button>
+                <button onClick={()=>productHendel(products)} className='bg-green-500 text-white w-full p-2 my-2 rounded-xl items-end justify-end'>Select</button>
                 </div>
             </div>
 
     );
 };
 Products.propTypes={
-    products: PropTypes.object.isRequired
+    products: PropTypes.object.isRequired,
+    productHendel: PropTypes.func
 }
 export default Products;
